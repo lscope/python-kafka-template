@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: wurstmeister/kafka
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "test-topic:1:1"
+
+  consumer:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: consumer
+    depends_on:
+      - kafka
+
+  producer:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: producer
+    depends_on:
+      - kafka
+
+networks:
+  default:
