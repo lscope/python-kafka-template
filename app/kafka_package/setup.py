@@ -10,6 +10,6 @@ setup(
     version="0.0.0",
     packages=find_packages(exclude=["test", "consumer", "producer"]),
     install_requires=[
-        "kafka-python",
+        "kafka-python==2.0.2",
     ],
 )
