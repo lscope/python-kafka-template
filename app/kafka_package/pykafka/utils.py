@@ -34,7 +34,7 @@ def get_kafka_producer(
         try:
             producer = KafkaProducer(
                 bootstrap_servers=f"{host}:{port}",
-                value_serializer=lambda v: v.encode("utf-8")
+                # value_serializer=lambda v: v.encode("utf-8")
             )
             break
         except NoBrokersAvailable:
@@ -80,7 +80,7 @@ def get_kafka_consumer(
                 auto_offset_reset=auto_offset_reset,
                 enable_auto_commit=enable_auto_commit,
                 group_id=group_id,
-                value_deserializer=lambda x: x.decode("utf-8"),
+                # value_deserializer=lambda x: x.decode("utf-8"),
                 # fetch_max_bytes=10 * 1048576, # 10MB
                 # max_partition_fetch_bytes=10 * 1048576, # 10MB
                 # max_poll_records=200, # 200 messages per poll
