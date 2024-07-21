@@ -3,6 +3,7 @@ version: '3.8'
 services:
   zookeeper:
     image: wurstmeister/zookeeper
+    # image: arm64v8/zookeeper # For ARM64 architecture
     ports:
       - "2181:2181"
 
