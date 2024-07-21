@@ -21,6 +21,8 @@ In order to use this repository, you should be familiar with base concepts of th
 
 ## How to use it
 
+> ⚠️ The standard configuration doesn't work for ARM64 architectures. If it's your case, before configure the environment, change the zookeper image in the `compose.yaml` file
+
 ### Local
 
 To start using this repo on your PC, move yourself throughout terminal inside main folder and easily run the command:
